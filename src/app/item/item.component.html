@@ -1,10 +1,16 @@
 <div class="item">
-  <input
-    [id]="item.description"
+  <div class="item-informations-container">
+    <input
+    [id]="item.id"
     type="checkbox"
     (change)="item.done = !item.done"
     [checked]="item.done" />
-  <label [for]="item.description">{{item.description}}</label>
+    <label [for]="item.id">
+    <div class="item-informations" [ngClass]="item.priority">
+      {{item.description}}  [{{item.dueDate}}] [{{item.priority}}]
+    </div>
+    </label>
+  </div>
 
   <div class="btn-wrapper" *ngIf="!editable">
     <button class="btn" (click)="editable = !editable">Edit</button>

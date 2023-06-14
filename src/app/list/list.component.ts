@@ -1,25 +1,31 @@
-import { Component } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { Item } from "../item";
-import { allItems } from '../items.mock';
 
 @Component({
   selector: 'app-list',
   templateUrl: './list.component.html',
   styleUrls: ['./list.component.css']
 })
+
 export class ListComponent {
-  filter: "all" | "active" | "done" = "all";
+  priorityFilter: "all" | "low" | "medium" | "high" = "all";
+  @Input() savedList: any;
 
   get items() {
-    if (this.filter === "all") {
-      return allItems;
+    if (this.priorityFilter === "all" ) {
+      return this.savedList;
     }
-    return allItems.filter((item) =>
-      this.filter === "done" ? item.done : !item.done
+
+    return this.savedList.filter((item: Item) =>
+      item.priority === this.priorityFilter
     );
   }
 
   remove(item: Item) {
-    allItems.splice(allItems.indexOf(item), 1);
+    const filteredList = this.savedList.filter((filteredItem: Item) =>
+      filteredItem.id !== item.id
+    )
+    localStorage.setItem('todoList', JSON.stringify(filteredList));
+    this.savedList = filteredList;
   }
 }

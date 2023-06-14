@@ -4,6 +4,28 @@
   font-size: 1.2rem;
 }
 
+.item-informations-container {
+  display: flex;
+}
+
+.item-informations {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.low {
+  color: green;
+}
+
+.medium {
+  color: orange;
+}
+
+.high {
+  color: red;
+}
+
 .btn-wrapper {
   margin-top: 1rem;
   margin-bottom: 0.5rem;

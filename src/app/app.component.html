@@ -1,8 +1,4 @@
 <div class="main">
-  <h1>To Do List</h1>
-  <label for="addItemInput">What would you like to do today?</label>
-
-  <app-add-item />
-  <app-list />
-
+  <app-add-item [savedList]="savedList" />
+  <app-list [savedList]="savedList" />
 </div>

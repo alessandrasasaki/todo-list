@@ -11,7 +11,7 @@ import { ListComponent } from './list/list.component';
     AppComponent,
     ItemComponent,
     AddItemComponent,
-    ListComponent
+    ListComponent,
   ],
   imports: [
     BrowserModule

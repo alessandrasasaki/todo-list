@@ -1,8 +1,48 @@
-<input
-    #newItem
-    placeholder="add an item"
-    (keyup.enter)="addItem(newItem.value); newItem.value = ''"
-    class="lg-text-input"
-    id="addItemInput" />
+<div class="add-items">
+  <label for="addItemInput">Add an item:</label>
 
-  <button class="btn-primary" (click)="addItem(newItem.value)">Add</button>
+  <div class="add-items-container">
+    <div class="add-item-inputs">
+      <input
+        #newItem
+        id="addItemInput"
+        name="itemDescription"
+        ngModel
+        placeholder="Item description"
+        class="lg-text-input"
+        required />
+
+        <input
+        #dueDate
+        id="addItemInput"
+        formControlName="dueDate"
+        type="date"
+        required />
+    </div>
+
+    <fieldset>
+      <legend>Priority:</legend>
+
+      <div class="filter-option">
+        <input type="radio" id="low" name="priority" value="low" (click)="changeSelectedPriority('low')" checked>
+        <label for="low">Low</label>
+      </div>
+
+      <div class="filter-option">
+        <input type="radio" id="medium" name="priority" value="medium" (click)="changeSelectedPriority('medium')">
+        <label for="medium">Medium</label>
+      </div>
+
+      <div class="filter-option">
+        <input type="radio" id="high" name="priority" value="high" (click)="changeSelectedPriority('high')">
+        <label for="high">High</label>
+      </div>
+    </fieldset>
+  </div>
+
+  <div>
+    <button class="btn-primary" (click)="addItem(newItem.value, dueDate.value, selectedPriority)"> add </button>
+  </div>
+</div>
+
+

@@ -1,34 +1,48 @@
-<div class="btn-wrapper">
-  <button
-    class="btn btn-menu"
-    [class.active]="filter == 'all'"
-    (click)="filter = 'all'">
-    All
-  </button>
+<div class="todo-list">
+  <h1>To Do List</h1>
 
-  <button
-    class="btn btn-menu"
-    [class.active]="filter == 'active'"
-    (click)="filter = 'active'">
-    To Do
-  </button>
+  Priority filter:
+  <div class="btn-wrapper">
+    <button
+      class="btn btn-menu"
+      [class.active]="priorityFilter == 'all'"
+      (click)="priorityFilter = 'all'">
+      All
+    </button>
 
-  <button
-    class="btn btn-menu"
-    [class.active]="filter == 'done'"
-    (click)="filter = 'done'">
-    Done
-  </button>
+    <button
+      class="btn btn-menu"
+      [class.active]="priorityFilter == 'low'"
+      (click)="priorityFilter = 'low'">
+      Low
+    </button>
+
+    <button
+      class="btn btn-menu"
+      [class.active]="priorityFilter == 'medium'"
+      (click)="priorityFilter = 'medium'">
+      Medium
+    </button>
+
+    <button
+      class="btn btn-menu"
+      [class.active]="priorityFilter == 'high'"
+      (click)="priorityFilter = 'high'">
+      High
+    </button>
+  </div>
+
+
+  <h2>
+    {{items ? items.length : 0}}
+    <span *ngIf="items && items.length === 1; else elseBlock">item</span>
+    <ng-template #elseBlock>items</ng-template>
+  </h2>
+
+  <ul>
+    <li *ngFor="let i of items">
+      <app-item (remove)="remove(i)" [item]="i"></app-item>
+    </li>
+  </ul>
+
 </div>
-
-<h2>
-  {{items.length}}
-  <span *ngIf="items.length === 1; else elseBlock">item</span>
-  <ng-template #elseBlock>items</ng-template>
-</h2>
-
-<ul>
-  <li *ngFor="let i of items">
-    <app-item (remove)="remove(i)" [item]="i"></app-item>
-  </li>
-</ul>

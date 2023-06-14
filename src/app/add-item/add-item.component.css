@@ -1,0 +1,44 @@
+.add-items {
+  width: 25vw;
+}
+
+@media screen and (max-width: 600px) {
+  .add-items {
+    width: 100%;
+  }
+}
+
+.add-items-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.add-item-inputs {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 1rem;
+}
+
+/* date picker aspect */
+[type="date"] {
+  width: 100%;
+  padding: 1rem;
+  border: 2px solid #000;
+  display: block;
+  box-sizing: border-box;
+  font-size: 1rem;
+}
+
+.filter-option {
+  display: flex;
+  align-items: center;
+}
+
+.filter-option > label {
+  font-size: 15px;
+  padding-bottom: 0;
+  margin: 0.625rem 0;
+}

@@ -8,4 +8,6 @@ import { Component } from '@angular/core';
 
 export class AppComponent {
   title = 'todo';
+  myLocalStorage = localStorage.getItem('todoList');
+  savedList = this.myLocalStorage ? JSON.parse(this.myLocalStorage) : null;
 }
