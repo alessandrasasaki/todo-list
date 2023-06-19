@@ -7,3 +7,12 @@
     width: 100%;
   }
 }
+
+.description-input-wrapper {
+  display: flex;
+}
+
+.btn-search {
+  margin: 0;
+  width: 5rem;
+}

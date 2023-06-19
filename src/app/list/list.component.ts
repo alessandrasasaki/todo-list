@@ -1,4 +1,4 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Item } from "../item";
 
 @Component({
@@ -10,6 +10,9 @@ import { Item } from "../item";
 export class ListComponent {
   priorityFilter: "all" | "low" | "medium" | "high" = "all";
   @Input() savedList: any;
+
+  myLocalStorage = localStorage.getItem('todoList');
+  originalList = this.myLocalStorage ? JSON.parse(this.myLocalStorage) : null;
 
   get items() {
     if (this.priorityFilter === "all" ) {
@@ -27,5 +30,16 @@ export class ListComponent {
     )
     localStorage.setItem('todoList', JSON.stringify(filteredList));
     this.savedList = filteredList;
+  }
+
+  searchDescription(term: string) {
+    this.resetSearch();
+    this.savedList = this.savedList.filter((item: Item) =>
+    item.description.includes(term)
+  );
+  }
+
+  resetSearch() {
+    this.savedList = this.originalList; //reset old filter
   }
 }
