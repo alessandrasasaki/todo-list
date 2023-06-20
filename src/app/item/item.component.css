@@ -2,6 +2,9 @@
   padding: 0.5rem 0 0.75rem 0;
   text-align: left;
   font-size: 1.2rem;
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
 }
 
 .item-informations-container {
@@ -12,6 +15,10 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+.priority-symbol {
+  margin-right: 0.5rem;
 }
 
 .low {
@@ -29,6 +36,25 @@
 .btn-wrapper {
   margin-top: 1rem;
   margin-bottom: 0.5rem;
+}
+
+.edit-btn-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+}
+
+.edit-btn {
+  font-size: 25px;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  flex-basis: auto;
+  padding: 0;
+  border: 0;
+  cursor: pointer;
 }
 
 .btn {

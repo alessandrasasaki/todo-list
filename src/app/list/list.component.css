@@ -1,8 +1,8 @@
 .todo-list {
-  width: 25vw;
+  width: 50vw;
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 900px) {
   .todo-list {
     width: 100%;
   }

@@ -2,7 +2,7 @@
   width: 25vw;
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 900px) {
   .add-items {
     width: 100%;
   }
